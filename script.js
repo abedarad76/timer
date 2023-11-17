@@ -1,6 +1,9 @@
 let interval;
 
 function Start() {
+ 
+  document.getElementById("start-button").setAttribute("disabled", "true");//button start disabled
+
   interval = setInterval(() => {
     const currentVzlue = document.getElementById("conter").innerHTML;
     const array = currentVzlue.split(":");
@@ -33,9 +36,11 @@ function Start() {
 }
 
 function Stop() {
+    document.getElementById("start-button").removeAttribute("disabled")
   clearInterval(interval);
 }
 
 function Rest() {
+  Stop();
   document.getElementById("conter").innerHTML = "00:00:00";
 }
